@@ -13,8 +13,12 @@
 
 * 播放器的使用也是非常的简单，只要初始化后提供播放的URL即可开始播放。
 ```
-YTVLCMoivePlayer* pvc = [[YTVLCMoivePlayer alloc]init];
-pvc.url = url;
-[self presentViewController:pvc animated:YES completion:nil];
+NSURL *url = [NSURL URLWithString:@"http://v4ttyey-10001453.video.myqcloud.com/Microblog/288-4-1452304375video1466172731.mp4"];
+NSURL *bundleUrl = [[NSBundle mainBundle]URLForResource:@"YTVLCMoivePlayer" withExtension:@"bundle"];
+NSBundle *myBundle = [NSBundle bundleWithURL:bundleUrl];
+YTVLCMoivePlayer *player = [[YTVLCMoivePlayer alloc]initWithNibName:@"YTVLCMoivePlayer" bundle:myBundle];
+player.url = url;
+[self presentViewController:player animated:YES completion:nil];
+
 ```
 
